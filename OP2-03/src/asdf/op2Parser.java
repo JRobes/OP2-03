@@ -8,7 +8,7 @@ import com.google.common.io.LittleEndianDataInputStream;
 
 public class op2Parser {
 	//static String fileName = "fem-op2.op2";
-	static String fileName = "elbdf_lll.op2";
+	static String fileName = "elbdf_lll_2.op2";
 	
 	//private static int isAnotherTable = 0;
 	private static boolean isAnotherTable = true;
@@ -23,9 +23,93 @@ public class op2Parser {
 			inputStream = new FileInputStream(fileName);
 			LittleEndianDataInputStream stream = new LittleEndianDataInputStream(inputStream);
 			readOP2Header(stream);
-			while(true){
-				lee3(stream);
-			}
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			
+			System.out.print(stream.readInt());System.out.print("\t");stream.skipBytes(8);System.out.print("8 bytes");System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			
+			
+			
+			System.out.println(stream.readInt());//System.out.print("\t");
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+			
+			
+			System.out.println(stream.readInt());//System.out.print("\n");
+
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");stream.skipBytes(8);System.out.print("8 bytes");System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			
+			
+			System.out.println(stream.readInt());//CHAR4
+			System.out.println(stream.readInt());//CHAR4
+			System.out.println(stream.readInt());//CHAR4
+			System.out.println(stream.readInt());//CHAR4
+			//grid 1
+			System.out.println(stream.readInt());//ID
+			System.out.println(stream.readInt());//CP
+			System.out.println(stream.readDouble());//x
+			System.out.println(stream.readDouble());//y
+			System.out.println(stream.readDouble());//z
+			
+			System.out.println(stream.readInt());//ID
+			System.out.println(stream.readInt());//CP
+			System.out.println(stream.readDouble());
+			System.out.println(stream.readDouble());
+			System.out.println(stream.readDouble());
+			System.out.println();
+			System.out.println(stream.readInt());
+			System.out.println(stream.readInt());
+			System.out.println(stream.readDouble());
+			System.out.println(stream.readDouble());
+			System.out.println(stream.readDouble());
+			
+			stream.skipBytes(452);System.out.print("452 bytes");System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			
+			
+			System.out.println(stream.readInt());
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+			System.out.println(byteToBinaryString(stream.readByte())+"  "+byteToBinaryString(stream.readByte()) +"  "+byteToBinaryString(stream.readByte())+"  "+ byteToBinaryString(stream.readByte()));
+					
+			System.out.println(stream.readInt());//System.out.print("\n");
+			
+			
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+			
+			//El cero final de tabla
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+
+			//comienzo de la siguiente
+			System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\t");System.out.print(stream.readInt());System.out.print("\n");
+
+				
+			//System.out.println(stream.readInt());
+			//stream.skipBytes(28);
+			////System.out.println("28 bytes");
+			//System.out.println(stream.readInt());
+			
+						
+			
 			
 			/*
 			while (isAnotherTable){
@@ -42,8 +126,8 @@ public class op2Parser {
 			}
 			*/
 		
-			//inputStream.close();
-			//stream.close();
+			inputStream.close();
+			stream.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found. Filename: "+fileName);
 			//e.printStackTrace();
@@ -255,7 +339,7 @@ public class op2Parser {
 		k=readTri(stream);//4 -1 4
   		k=readTri(stream);//4 0 4 
   		System.out.println("End of op2 header.");
-  		System.out.println();
+  		System.out.println("********************************************************************************");
 		
 	}
 	

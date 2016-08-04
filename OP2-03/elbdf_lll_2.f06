@@ -1,0 +1,540 @@
+1
+ 
+ 
+ 
+ 
+                     THIS PROGRAM IS CONFIDENTIAL AND A TRADE SECRET OF MSC.SOFTWARE CORPORATION.  THE RECEIPT OR    
+                  POSSESSION OF THIS PROGRAM DOES NOT CONVEY ANY RIGHTS TO REPRODUCE OR DISCLOSE ITS CONTENTS, OR TO 
+                 MANUFACTURE, USE, OR SELL ANYTHING HEREIN, IN WHOLE OR IN PART, WITHOUT THE SPECIFIC WRITTEN CONSENT
+                                                    OF MSC.SOFTWARE CORPORATION.                                     
+ 
+ 
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * *                                 * *
+                                              * *           MSC.SOFTWARE          * *
+                                              * *               CORP              * *
+                                              * *                                 * *
+                                              * *      M S C . N a s t r a n      * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *        Version 2005.5.2         * *
+                                              * *             2005r3b             * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *          JUN  6, 2006           * *
+                                              * *                                 * *
+                                              * *              Intel              * *
+                                              * *MODEL PentiumIII/5350 (CNU1523JC * *
+                                              * *   Windows XP 6.1 (Build 7601)   * *
+                                              * *        Compiled for 8664        * *
+                                              * *                                 * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+1News file - (2/7/06):
+  
+ Thank you for choosing MSC.Nastran, the industry standard in FEA.
+  
+                    Welcome to MSC.Nastran 2005 r3.
+  
+ You can find version-specific online documentation, and online technical
+ support at:
+  
+   http://www.mscsoftware.com/support/prod_support/nastran/
+  
+ Also at the technical support location is a searchable list of technical
+ application notes and the current error/avoidance list. Please don't hesitate
+ to contact your nearest technical support representative if you require
+ assistance.
+  
+   http://www.mscsoftware.com/about/locate/
+  
+ MSC.Nastran 2005 r3 provides new features and enhancements in the areas of
+ high performance computing, nonlinear analysis, assembly modeling,
+ optimization, rotor dynamics and aeroelasticity. These include:
+  
+ Nonlinear
+ - MSC.Nastran Implicit Nonlinear (SOL 600) - More robust data exchange,
+   faster contact (three to six-fold CPU time improvements), auto SPC and
+   MSET, inertia relief, an improved out-of-core solver, expanded results
+   support, automated brake squeal computations, improved fixed time stepping,
+   and improved user subroutine support.
+  
+ Numeric Enhancements
+ - A new iterative solution for static analysis. Also, significant performance
+   improvements along with reduction in I/O requirements have been achieved in
+   the ACMS solution.
+  
+ Elements
+ - Arbitrary Beam Cross-Section. Enhancements include a cross-section outline
+   display, stress data recovery and design optimization. The profiles can now
+   be optimized using SOL 200. Stress recovery includes both torsion and shear
+   terms.
+ - Line Interface Elements Connects dissimilar meshes along edges. A set of
+   MPC equations are internally generated to enforce the compatibility of
+   displacements and rotations across the interface.
+ - Three-node Beam Element. A general spatial three-node beam element for
+   linear static, modal, dynamic, and buckling analyses.
+ - NSML1 - Non-Structural Lumped Mass Interface Enhancement. The NSML1 entry
+   single element SET specification restriction has been removed. Multiple
+   element SETs can now be specified directly on the entry.
+  
+ Connector Elements
+ - CWSEAM Element - A new seam element to connect surface patches. Extends the
+1  existing CWELD and CFAST connector elements.
+ - RBE2GS Element - This new element generates internal RBE2 element connecting
+   a grid point pair closest to a user-defined search grid point. You can
+   exclude optional grids within search radius.
+  
+ Dynamics and Superelements
+ - Rotor Dynamics - A new general displacement and speed dependent nonlinear
+   element for rotor bearings and a nonlinear squeeze film damper element.
+   Also, support for the gyroscopic terms in aero solution sequences,
+   non-linear harmonic response, and an easier Campbell diagram to identify
+   rotor modes and track across subcases.
+ - External Superelement EXTSEOUT feature. Ability to: (a) specify suffixes
+   for DMIG matrices resulting from the use of the DMIGPCH option, (b) get
+   output for boundary points and PLOTEL points of an external SE in the
+   assembly run regardless of output requests in the external SE creation run,
+   and (c) have control over the Q-set or generalized degrees of freedom (DOFs)
+   of an external SE in the assembly run.
+  
+ Optimization
+ - MSC.Nastran Topology Optimization - This release supports manufacturing
+   constraints including casting (draw direction), extruding, and symmetry.
+  
+ Aeroelasticity
+ - Monitor Points - MONPNT2 selects a specific element response for output.
+   MONPNT3 outputs an integrated load on a structural subcomponent. MONDSP1
+   provides averaged displacement components. All of these are available in
+   SOLs 101 and 144, while SOL 146 supports MONPNT1 and MONDSP1.
+ - Export and Import of Loads - The EXPORTLD Case Control command supports
+   creation of a datablock that contains the external load of a user specified
+   set of grids. Alternatively, export a free-body load based on the grid point
+   forces of a user specified subcomponent. Loads can be imported into a
+   subsequent analysis via dblocate commands, and included in the external
+   load specification.
+1                                                                            AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     NASTRAN OP2NEW=0 $ MSC.NASTRAN .LCL FILE                                        
+     NASTRAN BUFFSIZE=8193 $(C:/MSC.SOFTWARE/MSC.NASTRAN/CONF/NAST20055.RCF[2])      
+     NASTRAN REAL=1057488896 $(PROGRAM DEFAULT)                                      
+     $ NASTRAN INPUT FILE CREATED BY THE PATRAN 2012.2.2 INPUT FILE                  
+     $ TRANSLATOR ON AUGUST    04, 2016 AT 13:59:04.                                 
+     $ DIRECT TEXT INPUT FOR NASTRAN SYSTEM CELL SECTION                             
+     $ DIRECT TEXT INPUT FOR FILE MANAGEMENT SECTION                                 
+     $ DIRECT TEXT INPUT FOR EXECUTIVE CONTROL                                       
+     $ LINEAR STATIC ANALYSIS, DATABASE                                              
+1                                                                            AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SOL 101                                                                                 
+     CEND                                                                                    
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                  1      $ DIRECT TEXT INPUT FOR GLOBAL CASE CONTROL DATA                                        
+                  2      TITLE = MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                                
+                  3      ECHO = NONE                                                                             
+                  4      SUBCASE 1                                                                               
+                  5      $ SUBCASE NAME : DEFAULT                                                                
+                  6         SUBTITLE=DEFAULT                                                                     
+                  7         SPC = 2                                                                              
+                  8         LOAD = 2                                                                             
+                  9         DISPLACEMENT(SORT1,REAL)=ALL                                                         
+                 10         SPCFORCES(SORT1,REAL)=ALL                                                            
+                 11         STRESS(SORT1,REAL,VONMISES,BILIN)=ALL                                                
+                 12      BEGIN BULK                                                                              
+0                             INPUT BULK DATA ENTRY COUNT =      43
+0                       TOTAL COUNT=        32
+ *** USER WARNING MESSAGE 4124 (IFS3P)
+     THE SPCADD OR MPCADD UNION CONSISTS OF A SINGLE SET.
+
+
+                                        M O D E L   S U M M A R Y
+
+                                   NUMBER OF GRID     POINTS   =       15
+ 
+                                   NUMBER OF CQUAD4   ELEMENTS =        8
+ 
+ *** USER INFORMATION MESSAGE 4109 (OUTPX2)
+     THE LABEL IS XXXXXXXX FOR FORTRAN UNIT 12
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          7 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          8 RECORDS.)
+                (TOTAL DATA WRITTEN FOR LABEL =         17 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK GEOM1X   WRITTEN ON FORTRAN UNIT 12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR GEOM168, TRL =
+                    101                 0                 0                 8                 0                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS GEOM1   
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         123 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =         154 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK GEOM2X   WRITTEN ON FORTRAN UNIT 12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR GEOM201, TRL =
+                    102                 0                 0                 0              8192                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS GEOM2   
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         115 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =         146 WORDS.)
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE     4
+                                                                                                                                    
+0                                                                                                                                   
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK GEOM3X   WRITTEN ON FORTRAN UNIT 12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR GEOM301, TRL =
+                    103                 0                 0                64                 8                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS GEOM3   
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          10 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          25 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =          54 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK GEOM4X   WRITTEN ON FORTRAN UNIT 12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR GEOM4705, TRL =
+                    104                 0                 0                 0                96                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS GEOM4   
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          10 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          25 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =          51 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK EPTX     WRITTEN ON FORTRAN UNIT 12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR EPT01, TRL =
+                    105                 0               512                 0                 0                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS EPT     
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          14 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =          45 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK MPTS     WRITTEN ON FORTRAN UNIT 12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR MPTS, TRL =
+                    101             32768                 0                 0                 0                 0                 0
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS MPTS    
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =          15 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =          46 WORDS.)
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE     5
+                                                                                                                                    
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 7310 (VECPRN)
+     ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM WILL BE USED AS REFERENCE LOCATION.
+     RESULTANTS ABOUT ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM IN SUPERELEMENT BASIC SYSTEM COORDINATES.
+0                                                  OLOAD    RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX    1.000000E+03     ----          ----          ----       0.000000E+00 -5.000000E+03                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  1.000000E+03  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00 -5.000000E+03
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE     6
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ *** SYSTEM INFORMATION MESSAGE 6916 (DFMSYN)
+     DECOMP ORDERING METHOD CHOSEN: BEND, ORDERING METHOD USED: BEND
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KLL      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    3.196531E+01
+ *** USER INFORMATION MESSAGE 5293 (SSG3A)
+    FOR DATA BLOCK KLL     
+    LOAD SEQ. NO.             EPSILON              EXTERNAL WORK      EPSILONS LARGER THAN 0.001 ARE FLAGGED WITH ASTERISKS
+                1          2.1903430E-18          7.9589553E+00
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE     7
+                                                                                                                                    
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 7310 (VECPRN)
+     ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM WILL BE USED AS REFERENCE LOCATION.
+     RESULTANTS ABOUT ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM IN SUPERELEMENT BASIC SYSTEM COORDINATES.
+0                                                  SPCFORCE RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX   -1.000000E+03     ----          ----          ----       1.957302E+02  4.938126E+03                             
+               FY       ----      -1.918465E-13     ----      -2.464933E+01     ----       7.394798E+01                             
+               FZ       ----          ----       1.545430E-13  9.561385E+01 -4.968507E+01     ----                                  
+               MX       ----          ----          ----      -7.096452E+01     ----          ----                                  
+               MY       ----          ----          ----          ----      -1.460452E+02     ----                                  
+               MZ       ----          ----          ----          ----          ----      -1.207395E+01                             
+             TOTALS -1.000000E+03 -1.918465E-13  1.545430E-13  0.000000E+00  3.814697E-06  5.000000E+03
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE     8
+                                                                                                                                    
+0                                                                                                                                   
+0                                                  MAXIMUM  SPCFORCES       
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   5.4262225E+02  5.8692219E+01  2.0625286E+01  4.9586918E+01  7.5556564E+01  6.6661897E+00
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE     9
+                                                                                                                                    
+0                                                                                                                                   
+0                                                  MAXIMUM  DISPLACEMENTS   
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   1.5917910E-02  2.9814932E-03  8.1607299E-03  4.4406619E-04  4.8551659E-04  1.3750546E-03
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE    10
+                                                                                                                                    
+0                                                                                                                                   
+0                                                  MAXIMUM  APPLIED LOADS   
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   1.0000000E+03  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00  0.0000000E+00
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK OQG1     WRITTEN ON FORTRAN UNIT 12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR OQG1, TRL =
+                    101                 0               120                 0                 0                 0                 1
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS OQG1    
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         146 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =         299 WORDS.)
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK OUGV1    WRITTEN ON FORTRAN UNIT 12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR OUGV1, TRL =
+                    101                 0               120                 0                 0                 0                 1
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS OUGV1   
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         146 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =         299 WORDS.)
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE    11
+     DEFAULT                                                                                                                        
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           555      G      0.0            0.0            0.0            0.0            0.0            0.0
+           556      G      0.0            0.0            0.0            0.0            0.0            0.0
+           557      G      0.0            0.0            0.0            0.0            0.0            0.0
+           558      G      2.876580E-03   1.472806E-03  -3.240629E-03   2.998165E-04   4.855166E-04   8.194325E-05
+           559      G      2.864223E-03   5.129862E-04  -1.232925E-03   3.710359E-04   3.483751E-04   4.535371E-05
+           560      G      2.585371E-03  -5.704043E-04   1.003558E-04   2.401427E-04   1.138683E-04   1.902832E-05
+           561      G      5.848002E-03   1.436201E-03  -5.059669E-03   4.440662E-04   3.100448E-04   1.221852E-04
+           562      G      5.380494E-03   6.127449E-04  -2.979370E-03   3.702888E-04   3.279089E-04   2.567803E-05
+           563      G      5.580377E-03  -1.771378E-04  -9.844983E-04   4.073053E-04   2.967158E-04  -6.514294E-05
+           564      G      8.464264E-03   2.981493E-03  -6.605078E-03   3.987302E-04   3.099864E-04  -1.236098E-04
+           565      G      8.664679E-03   7.589217E-04  -4.572087E-03   4.150243E-04   3.098389E-04   2.763226E-05
+           566      G      8.190601E-03  -1.473497E-03  -2.536351E-03   3.988894E-04   3.208357E-04   1.774469E-04
+           567      G      6.336942E-03  -6.351644E-04  -8.160730E-03   4.094148E-04   3.119680E-04  -1.319763E-03
+           568      G      1.591791E-02   8.917282E-04  -6.133270E-03   4.019021E-04   3.139484E-04   2.690239E-05
+           569      G      6.064507E-03   2.423645E-03  -4.110480E-03   4.088301E-04   3.104947E-04   1.375055E-03
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE    12
+     DEFAULT                                                                                                                        
+0                                                                                                            SUBCASE 1              
+ 
+                               F O R C E S   O F   S I N G L E - P O I N T   C O N S T R A I N T
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           555      G     -1.957302E+02  -2.464933E+01  -1.656169E+01  -7.353807E+00  -5.876611E+01  -6.666190E+00
+           556      G     -5.426223E+02  -3.404289E+01   2.062529E+01  -4.958692E+01  -7.555656E+01  -5.417515E+00
+           557      G     -2.616475E+02   5.869222E+01  -4.063596E+00  -1.402380E+01  -1.172249E+01   9.756915E-03
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE    13
+                                                                                                                                    
+0                                                                                                                                   
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE    14
+     DEFAULT                                                                                                                        
+0                                                                                                            SUBCASE 1              
+ 
+                         S T R E S S E S   I N   Q U A D R I L A T E R A L   E L E M E N T S   ( Q U A D 4 )        OPTION = BILIN  
+ 
+    ELEMENT              FIBER            STRESSES IN ELEMENT COORD SYSTEM         PRINCIPAL STRESSES (ZERO SHEAR)               
+      ID      GRID-ID   DISTANCE        NORMAL-X      NORMAL-Y      SHEAR-XY      ANGLE        MAJOR         MINOR       VON MISES 
+0         1    CEN/4  -1.300000E+00   5.123333E+00  3.791237E+01 -3.725128E-01   -89.3492   3.791660E+01  5.119102E+00  3.563390E+01
+                       1.300000E+00  -4.530545E-01  2.290525E+01  4.899567E+00    78.6206   2.389134E+01 -1.439144E+00  2.464245E+01
+
+                 555  -1.300000E+00   7.666757E+00  3.254573E+01 -8.221552E-01   -88.1093   3.257287E+01  7.639617E+00  2.950443E+01
+                       1.300000E+00   1.134761E-02  1.717710E+01  3.950432E+00    77.6424   1.804259E+01 -8.541452E-01  1.848447E+01
+
+                 556  -1.300000E+00   9.576036E+00  4.454007E+01  1.766107E+00    87.1157   4.462906E+01  9.487053E+00  4.072295E+01
+                       1.300000E+00   8.257543E-01  2.969159E+01  6.405390E+00    78.0341   3.104912E+01 -5.317725E-01  3.131839E+01
+
+                 559  -1.300000E+00   8.715976E-01  4.601261E+01  2.200998E-01    89.7206   4.601368E+01  8.705245E-01  4.558465E+01
+                       1.300000E+00  -1.254695E+00  3.156679E+01  6.314024E+00    79.4779   3.273954E+01 -2.427450E+00  3.401828E+01
+
+                 558  -1.300000E+00   1.782290E+00  3.038553E+01 -2.443532E+00   -85.1521   3.059278E+01  1.575044E+00  2.983645E+01
+                       1.300000E+00  -1.486837E+00  1.513322E+01  3.264844E+00    79.2756   1.575156E+01 -2.105178E+00  1.690276E+01
+
+0         2    CEN/4  -1.300000E+00   8.523199E+00  4.519941E+01 -3.765584E+00   -84.1980   4.558203E+01  8.140574E+00  4.210613E+01
+                       1.300000E+00   2.709726E+00  3.480178E+01  1.995740E+00    86.4551   3.492541E+01  2.586092E+00  3.370685E+01
+
+                 556  -1.300000E+00   1.491580E+01  4.931856E+01 -3.765584E+00   -83.8260   4.972590E+01  1.450846E+01  4.429124E+01
+                       1.300000E+00   1.148459E+01  3.458656E+01  1.995740E+00    85.0987   3.475769E+01  1.131345E+01  3.070606E+01
+
+                 557  -1.300000E+00   1.491580E+01  4.108025E+01 -3.765584E+00   -81.9710   4.161141E+01  1.438465E+01  3.660413E+01
+                       1.300000E+00   1.148459E+01  3.501700E+01  1.995740E+00    85.1867   3.518505E+01  1.131653E+01  3.111076E+01
+
+                 560  -1.300000E+00   2.130594E+00  4.108025E+01 -3.765584E+00   -84.5283   4.144096E+01  1.769884E+00  4.058498E+01
+                       1.300000E+00  -6.065135E+00  3.501700E+01  1.995740E+00    87.2253   3.511372E+01 -6.161859E+00  3.856563E+01
+
+                 559  -1.300000E+00   2.130594E+00  4.931856E+01 -3.765584E+00   -85.4661   4.961716E+01  1.831991E+00  4.872700E+01
+                       1.300000E+00  -6.065135E+00  3.458656E+01  1.995740E+00    87.1961   3.468430E+01 -6.162878E+00  3.814101E+01
+
+0         3    CEN/4  -1.300000E+00  -3.632364E-01  3.651094E+01 -1.977623E+00   -86.9388   3.661671E+01 -4.689962E-01  3.685344E+01
+                       1.300000E+00   7.978575E-01  4.046018E+01 -2.155937E-01   -89.6886   4.046135E+01  7.966856E-01  4.006895E+01
+
+                 558  -1.300000E+00  -2.589454E+00  3.828646E+01 -1.977623E+00   -87.2366   3.838192E+01 -2.684911E+00  3.979237E+01
+                       1.300000E+00   1.114984E+00  4.505679E+01 -2.155937E-01   -89.7189   4.505785E+01  1.113927E+00  4.451134E+01
+
+                 559  -1.300000E+00  -2.589454E+00  3.473543E+01 -1.977623E+00   -86.9755   3.483992E+01 -2.693944E+00  3.626202E+01
+                       1.300000E+00   1.114984E+00  3.586356E+01 -2.155937E-01   -89.6445   3.586490E+01  1.113647E+00  3.532125E+01
+
+                 562  -1.300000E+00   1.862981E+00  3.473543E+01 -1.977623E+00   -86.5695   3.485398E+01  1.744434E+00  3.401533E+01
+                       1.300000E+00   4.807306E-01  3.586356E+01 -2.155937E-01   -89.6509   3.586488E+01  4.794170E-01  3.562759E+01
+
+                 561  -1.300000E+00   1.862981E+00  3.828646E+01 -1.977623E+00   -86.9013   3.839352E+01  1.755920E+00  3.754637E+01
+                       1.300000E+00   4.807306E-01  4.505679E+01 -2.155937E-01   -89.7229   4.505783E+01  4.796879E-01  4.481992E+01
+
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE    15
+     DEFAULT                                                                                                                        
+0                                                                                                            SUBCASE 1              
+ 
+                         S T R E S S E S   I N   Q U A D R I L A T E R A L   E L E M E N T S   ( Q U A D 4 )        OPTION = BILIN  
+ 
+    ELEMENT              FIBER            STRESSES IN ELEMENT COORD SYSTEM         PRINCIPAL STRESSES (ZERO SHEAR)               
+      ID      GRID-ID   DISTANCE        NORMAL-X      NORMAL-Y      SHEAR-XY      ANGLE        MAJOR         MINOR       VON MISES 
+0         4    CEN/4  -1.300000E+00   1.077371E+00  4.041213E+01 -3.886674E-01   -89.4339   4.041597E+01  1.073530E+00  3.989005E+01
+                       1.300000E+00  -1.934431E+00  3.646290E+01  2.567912E+00    86.1908   3.663388E+01 -2.105405E+00  3.773066E+01
+
+                 559  -1.300000E+00   5.507941E-01  3.521083E+01 -3.886674E-01   -89.3576   3.521519E+01  5.464363E-01  3.494518E+01
+                       1.300000E+00  -5.516963E+00  3.496191E+01  2.567912E+00    86.3846   3.512416E+01 -5.679217E+00  3.828104E+01
+
+                 560  -1.300000E+00   5.507941E-01  4.561344E+01 -3.886674E-01   -89.5059   4.561679E+01  5.474421E-01  4.534555E+01
+                       1.300000E+00  -5.516963E+00  3.796390E+01  2.567912E+00    86.6318   3.811503E+01 -5.668095E+00  4.124224E+01
+
+                 563  -1.300000E+00   1.603947E+00  4.561344E+01 -3.886674E-01   -89.4940   4.561687E+01  1.600515E+00  4.483804E+01
+                       1.300000E+00   1.648102E+00  3.796390E+01  2.567912E+00    85.9753   3.814458E+01  1.467422E+00  3.743244E+01
+
+                 562  -1.300000E+00   1.603947E+00  3.521083E+01 -3.886674E-01   -89.3375   3.521533E+01  1.599453E+00  3.444346E+01
+                       1.300000E+00   1.648102E+00  3.496191E+01  2.567912E+00    85.6180   3.515869E+01  1.451323E+00  3.445596E+01
+
+0         5    CEN/4  -1.300000E+00  -8.106275E+00  3.846309E+01  3.811023E+00    85.3524   3.877290E+01 -8.416090E+00  4.359455E+01
+                       1.300000E+00  -9.158137E+00  3.844591E+01  3.685696E+00    85.5989   3.872958E+01 -9.441809E+00  4.421318E+01
+
+                 561  -1.300000E+00   2.507187E+00  3.395152E+01  3.811023E+00    83.1872   3.440682E+01  2.051888E+00  3.342814E+01
+                       1.300000E+00  -1.839781E-01  3.360653E+01  3.685696E+00    83.8469   3.400388E+01 -5.813225E-01  3.429824E+01
+
+                 562  -1.300000E+00   2.507187E+00  4.297465E+01  3.811023E+00    84.6666   4.333043E+01  2.151412E+00  4.229578E+01
+                       1.300000E+00  -1.839781E-01  4.328528E+01  3.685696E+00    85.1878   4.359557E+01 -4.942680E-01  4.384480E+01
+
+                 565  -1.300000E+00  -1.871974E+01  4.297465E+01  3.811023E+00    86.4785   4.320918E+01 -1.895426E+01  5.518419E+01
+                       1.300000E+00  -1.813230E+01  4.328528E+01  3.685696E+00    86.5780   4.350567E+01 -1.835269E+01  5.502736E+01
+
+                 564  -1.300000E+00  -1.871974E+01  3.395152E+01  3.811023E+00    85.8829   3.422584E+01 -1.899405E+01  4.671477E+01
+                       1.300000E+00  -1.813230E+01  3.360653E+01  3.685696E+00    85.9457   3.386777E+01 -1.839353E+01  4.591618E+01
+
+0         6    CEN/4  -1.300000E+00  -8.654328E+00  3.846000E+01 -3.941702E+00   -85.2505   3.878749E+01 -8.981825E+00  4.397187E+01
+                       1.300000E+00  -8.268617E+00  3.847717E+01 -3.555014E+00   -85.6758   3.874598E+01 -8.537429E+00  4.364550E+01
+
+                 562  -1.300000E+00   9.597407E-01  4.279379E+01 -3.941702E+00   -84.6640   4.316195E+01  5.915842E-01  4.286922E+01
+                       1.300000E+00   2.312810E+00  4.357883E+01 -3.555014E+00   -85.1120   4.388285E+01  2.008790E+00  4.291373E+01
+
+                 563  -1.300000E+00   9.597407E-01  3.412620E+01 -3.941702E+00   -83.3147   3.458821E+01  4.977211E-01  3.434206E+01
+                       1.300000E+00   2.312810E+00  3.337551E+01 -3.555014E+00   -83.5537   3.377718E+01  1.911146E+00  3.286331E+01
+
+                 566  -1.300000E+00  -1.826840E+01  3.412620E+01 -3.941702E+00   -85.7217   3.442107E+01 -1.856328E+01  4.656580E+01
+                       1.300000E+00  -1.885004E+01  3.337551E+01 -3.555014E+00   -86.1237   3.361640E+01 -1.909092E+01  4.622005E+01
+
+                 565  -1.300000E+00  -1.826840E+01  4.279379E+01 -3.941702E+00   -86.3218   4.304719E+01 -1.852179E+01  5.471223E+01
+                       1.300000E+00  -1.885004E+01  4.357883E+01 -3.555014E+00   -86.7513   4.378061E+01 -1.905183E+01  5.580157E+01
+
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE    16
+     DEFAULT                                                                                                                        
+0                                                                                                            SUBCASE 1              
+ 
+                         S T R E S S E S   I N   Q U A D R I L A T E R A L   E L E M E N T S   ( Q U A D 4 )        OPTION = BILIN  
+ 
+    ELEMENT              FIBER            STRESSES IN ELEMENT COORD SYSTEM         PRINCIPAL STRESSES (ZERO SHEAR)               
+      ID      GRID-ID   DISTANCE        NORMAL-X      NORMAL-Y      SHEAR-XY      ANGLE        MAJOR         MINOR       VON MISES 
+0         7    CEN/4  -1.300000E+00   7.753878E+00  3.849558E+01  1.658707E+01    66.4103   4.573875E+01  5.107107E-01  4.548554E+01
+                       1.300000E+00   7.892178E+00  3.843036E+01  1.655785E+01    66.3406   4.568476E+01  6.377830E-01  4.536923E+01
+
+                 564  -1.300000E+00  -1.870901E+01 -2.718765E+01  1.658707E+01    37.8316  -5.828094E+00 -4.006857E+01  3.749578E+01
+                       1.300000E+00  -1.813743E+01 -2.721415E+01  1.655785E+01    37.3361  -5.507240E+00 -3.984433E+01  3.739610E+01
+
+                 565  -1.300000E+00  -1.870901E+01  1.041788E+02  1.658707E+01    82.4464   1.063783E+02 -2.090852E+01  1.182274E+02
+                       1.300000E+00  -1.813743E+01  1.040749E+02  1.655785E+01    82.4194   1.062785E+02 -2.034102E+01  1.177739E+02
+
+                 568  -1.300000E+00   3.421677E+01  1.041788E+02  1.658707E+01    77.3155   1.079122E+02  3.048342E+01  9.635737E+01
+                       1.300000E+00   3.392178E+01  1.040749E+02  1.655785E+01    77.3652   1.077866E+02  3.021010E+01  9.630341E+01
+
+                 567  -1.300000E+00   3.421677E+01 -2.718765E+01  1.658707E+01    14.1902   3.841093E+01 -3.138181E+01  6.054438E+01
+                       1.300000E+00   3.392178E+01 -2.721415E+01  1.655785E+01    14.2216   3.811821E+01 -3.141057E+01  6.030702E+01
+
+0         8    CEN/4  -1.300000E+00   7.861348E+00  3.842750E+01 -1.653577E+01   -66.3727   4.566117E+01  6.276741E-01  4.535059E+01
+                       1.300000E+00   7.715304E+00  3.849272E+01 -1.660915E+01   -66.4079   4.574636E+01  4.616603E-01  4.551729E+01
+
+                 565  -1.300000E+00  -1.827912E+01  1.042143E+02 -1.653577E+01   -82.4456   1.064072E+02 -2.047208E+01  1.179830E+02
+                       1.300000E+00  -1.884491E+01  1.040165E+02 -1.660915E+01   -82.4353   1.062222E+02 -2.105064E+01  1.181623E+02
+
+                 566  -1.300000E+00  -1.827912E+01 -2.735928E+01 -1.653577E+01   -37.3236  -5.671493E+00 -3.996691E+01  3.745461E+01
+                       1.300000E+00  -1.884491E+01 -2.703106E+01 -1.660915E+01   -38.0781  -5.831936E+00 -4.004404E+01  3.747002E+01
+
+                 569  -1.300000E+00   3.400182E+01 -2.735928E+01 -1.653577E+01   -14.1616   3.817421E+01 -3.153168E+01  6.045837E+01
+                       1.300000E+00   3.427552E+01 -2.703106E+01 -1.660915E+01   -14.2253   3.848608E+01 -3.124162E+01  6.049450E+01
+
+                 568  -1.300000E+00   3.400182E+01  1.042143E+02 -1.653577E+01   -77.3893   1.079137E+02  3.030239E+01  9.640311E+01
+                       1.300000E+00   3.427552E+01  1.040165E+02 -1.660915E+01   -77.2655   1.077700E+02  3.052199E+01  9.621130E+01
+
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE    17
+                                                                                                                                    
+0                                                                                                                                   
+ *** USER INFORMATION MESSAGE 4114 (OUTPX2)
+     DATA BLOCK OES1X1   WRITTEN ON FORTRAN UNIT 12 IN BINARY (LTLEND) FORMAT USING NDDL DESCRIPTION FOR OES1X1, TRL =
+                    101                63                 8                 4                16                 0                 1
+     NAME OF DATA BLOCK WRITTEN ON FORTRAN UNIT IS OES1X1  
+        (MAXIMUM POSSIBLE FORTRAN RECORD SIZE =       16386 WORDS.)
+     (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =         696 WORDS.)
+           (NUMBER OF FORTRAN RECORDS WRITTEN =          20 RECORDS.)
+           (TOTAL DATA WRITTEN FOR DATA BLOCK =         875 WORDS.)
+ *** USER INFORMATION MESSAGE 4110 (OUTPX2)
+                                 END-OF-DATA SIMULATION ON FORTRAN UNIT 12
+                                 (MAXIMUM SIZE OF FORTRAN RECORDS WRITTEN =      1 WORDS.)
+                                       (NUMBER OF FORTRAN RECORDS WRITTEN =      1 RECORDS.)
+                                       (TOTAL DATA WRITTEN FOR EOF MARKER =      1 WORDS.)
+1    MSC.NASTRAN JOB CREATED ON 04-AUG-16 AT 07:47:28                        AUGUST   4, 2016  MSC.NASTRAN  6/ 6/06   PAGE    18
+                                                                                                                                    
+0                                                                                                                                   
+ * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     30
+
+
+
+0                                   * * * *  A N A L Y S I S  S U M M A R Y  T A B L E  * * * *
+0 SEID  PEID PROJ VERS APRCH      SEMG SEMR SEKR SELG SELR MODES DYNRED SOLLIN PVALID SOLNL LOOPID DESIGN CYCLE SENSITIVITY
+ --------------------------------------------------------------------------------------------------------------------------
+     0     0    1    1 '        '    T    T    T    T    T     F      F      T      0     F     -1            0           F
+0SEID = SUPERELEMENT ID.
+ PEID = PRIMARY SUPERELEMENT ID OF IMAGE SUPERELEMENT.
+ PROJ = PROJECT ID NUMBER.
+ VERS = VERSION ID.
+ APRCH = BLANK FOR STRUCTURAL ANALYSIS.  HEAT FOR HEAT TRANSFER ANALYSIS.
+ SEMG = STIFFNESS AND MASS MATRIX GENERATION STEP.
+ SEMR = MASS MATRIX REDUCTION STEP (INCLUDES EIGENVALUE SOLUTION FOR MODES).
+ SEKR = STIFFNESS MATRIX REDUCTION STEP.
+ SELG = LOAD MATRIX GENERATION STEP.
+ SELR = LOAD MATRIX REDUCTION STEP. 
+ MODES = T (TRUE) IF NORMAL MODES OR BUCKLING MODES CALCULATED.
+ DYNRED = T (TRUE) MEANS GENERALIZED DYNAMIC AND/OR COMPONENT MODE REDUCTION PERFORMED.
+ SOLLIN = T (TRUE) IF LINEAR SOLUTION EXISTS IN DATABASE.
+ PVALID = P-DISTRIBUTION ID OF P-VALUE FOR P-ELEMENTS
+ LOOPID = THE LAST LOOPID VALUE USED IN THE NONLINEAR ANALYSIS.  USEFUL FOR RESTARTS.
+ SOLNL = T (TRUE) IF NONLINEAR SOLUTION EXISTS IN DATABASE.
+ DESIGN CYCLE = THE LAST DESIGN CYCLE (ONLY VALID IN OPTIMIZATION).
+ SENSITIVITY = SENSITIVITY MATRIX GENERATION FLAG.
+ 
+ No PARAM values were set in the Control File.
+ 
+1                                        * * * END OF JOB * * *
+ 
+ 

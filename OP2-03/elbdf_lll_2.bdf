@@ -1,0 +1,63 @@
+$ NASTRAN input file created by the Patran 2012.2.2 input file
+$ translator on August    04, 2016 at 13:59:04.
+$ Direct Text Input for Nastran System Cell Section
+$ Direct Text Input for File Management Section
+$ Direct Text Input for Executive Control
+$ Linear Static Analysis, Database
+SOL 101
+CEND
+$ Direct Text Input for Global Case Control Data
+TITLE = MSC.Nastran job created on 04-Aug-16 at 07:47:28
+ECHO = NONE
+SUBCASE 1
+$ Subcase name : Default
+   SUBTITLE=Default
+   SPC = 2
+   LOAD = 2
+   DISPLACEMENT(SORT1,REAL)=ALL
+   SPCFORCES(SORT1,REAL)=ALL
+   STRESS(SORT1,REAL,VONMISES,BILIN)=ALL
+BEGIN BULK
+$ Direct Text Input for Bulk Data
+PARAM    POST    -1
+PARAM   PRTMAXIM YES
+$ Elements and Element Properties for region : proppp
+PSHELL   1       1      2.6      1               1
+$ Pset: "proppp" will be imported as: "pshell.1"
+CQUAD4   1       1       555     556     559     558
+CQUAD4   2       1       556     557     560     559
+CQUAD4   3       1       558     559     562     561
+CQUAD4   4       1       559     560     563     562
+CQUAD4   5       1       561     562     565     564
+CQUAD4   6       1       562     563     566     565
+CQUAD4   7       1       564     565     568     567
+CQUAD4   8       1       565     566     569     568
+$ Referenced Material Records
+$ Material Record : alum
+$ Description of Material : Date: 04-Aug-16           Time: 07:53:21
+MAT1     1      70000.          .33     2.8-9
+$ Nodes of the Entire Model
+GRID     555             0.      0.      0.
+GRID     556             0.     5.       0.
+GRID     557             0.     10.      0.
+GRID     558            5.       0.      0.
+GRID     559            5.      5.       0.
+GRID     560            5.      10.      0.
+GRID     561            10.      0.      0.
+GRID     562            10.     5.       0.
+GRID     563            10.     10.      0.
+GRID     564            15.      0.      0.
+GRID     565            15.     5.       0.
+GRID     566            15.     10.      0.
+GRID     567            20.      0.      0.
+GRID     568            20.     5.       0.
+GRID     569            20.     10.      0.
+$ Loads for Load Case : Default
+SPCADD   2       1
+LOAD     2      1.      1.       1
+$ Displacement Constraints of Load Set : spcd
+SPC1     1       123456  555     556     557
+$ Nodal Forces of Load Set : fuerza
+FORCE    1       568     0      1000.   1.       0.      0.
+$ Referenced Coordinate Frames
+ENDDATA 5f9c603d
