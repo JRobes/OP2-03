@@ -3,6 +3,7 @@ package asdf;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 
 import com.google.common.io.LittleEndianDataInputStream;
 
@@ -61,9 +62,19 @@ public class op2Parser {
 			//grid 1
 			System.out.println(stream.readInt());//ID
 			System.out.println(stream.readInt());//CP
-			System.out.println(stream.readDouble());//x
-			System.out.println(stream.readDouble());//y
-			System.out.println(stream.readDouble());//z
+			byte[] bytes = new byte[8];
+			
+			stream.read(bytes);
+			System.out.println(ByteBuffer.wrap(bytes).getDouble());//x
+			stream.read(bytes);
+			System.out.println(ByteBuffer.wrap(bytes).getDouble());//y
+			stream.read(bytes);
+			System.out.println(ByteBuffer.wrap(bytes).getDouble());//z
+			
+			System.out.println(stream.readInt());//uno
+			System.out.println(stream.readInt());//dos
+			System.out.println(stream.readInt());//tres
+			
 			
 			System.out.println(stream.readInt());//ID
 			System.out.println(stream.readInt());//CP
