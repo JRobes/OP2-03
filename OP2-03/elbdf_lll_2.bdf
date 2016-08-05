@@ -37,8 +37,9 @@ $ Material Record : alum
 $ Description of Material : Date: 04-Aug-16           Time: 07:53:21
 MAT1     1      70000.          .33     2.8-9
 $ Nodes of the Entire Model
-GRID     555             0.      0.      0.
-GRID     556             0.     5.       0.
+$_______2_______3_______4_______5_______6_______
+GRID     555            -33.     0.      -34.
+GRID     556             8.+6   5.33     -5.33
 GRID     557             0.     10.      0.
 GRID     558            5.       0.      0.
 GRID     559            5.      5.       0.
